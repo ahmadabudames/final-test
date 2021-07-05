@@ -3,7 +3,6 @@ import DataFromCrudApi from './DataFromCrudApi'
 import axios from 'axios';
 import ShowFormCrud from './ShowFormCrud';
 export class Favorite extends Component {
-
     constructor(props) {
         super(props);
 
@@ -19,7 +18,6 @@ export class Favorite extends Component {
 
         }
     }
-
     deleteItem = async (name) => {
         const request = await axios.delete(`${this.state.Url}/ahmad/digimon/${name}`);
 
@@ -28,18 +26,15 @@ export class Favorite extends Component {
 
         })
     }
-
     showUpdate = (level,name) => {
         this.setState({
             level: level,
             nameOfName:name,
-            
             showUpdateForm: true
 
         })
     }
     updateOfLevel = (e) => this.setState({ level: e.target.value });
-
 
     updateItem=async(e)=>{
         e.preventDefault();
@@ -49,7 +44,6 @@ export class Favorite extends Component {
             dataFromCrudApi:request.data,
         })
     }
-
     componentDidMount = async () => {
         const request = await axios.get(`${this.state.Url}/ahmad/digimon`);
         this.setState({
@@ -57,11 +51,6 @@ export class Favorite extends Component {
             showDataFromCrudApi: true
         })
     }
-
-
-
-
-
     render() {
         return (
             <>
@@ -85,11 +74,8 @@ export class Favorite extends Component {
                         dataFromCrudApi={this.state.dataFromCrudApi}
                         deleteItem={this.deleteItem}
                         showUpdate={this.showUpdate}
-
                     />
                 }
-              
-
             </>
         )
     }

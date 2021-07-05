@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import DataFromApi from './DataFromApi';
-
-
 export class Main extends Component {
     constructor(props) {
         super(props);
@@ -16,15 +14,13 @@ export class Main extends Component {
 
         }
     }
-
     favoriteItem = async (dataobj) => {
-const postRequest=await axios.post(`${this.state.Url}/ahmad/digimon`,dataobj)
-this.setState({
-    message:postRequest.data,
-    showMessage:true
-})
-}
-
+        const postRequest = await axios.post(`${this.state.Url}/ahmad/digimon`, dataobj)
+        this.setState({
+            message: postRequest.data,
+            showMessage: true
+        })
+    }
     componentDidMount = async () => {
         const request = await axios.get(`${this.state.Url}/ahmad`);
         this.setState({
@@ -32,21 +28,16 @@ this.setState({
             showDataFromApi: true
         })
     }
-
     render() {
         return (
-
-
             <>
 
-{
-
-    this.state.showMessage &&
-    <h3>
-        {this.state.message}
-    </h3>
-}
-
+                {
+                    this.state.showMessage &&
+                    <h3>
+                        {this.state.message}
+                    </h3>
+                }
                 {
                     this.state.showDataFromApi &&
                     <DataFromApi
